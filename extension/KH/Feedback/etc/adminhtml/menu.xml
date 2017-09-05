@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="KH_Feedback::parent" title="Feedback" module="KH_Feedback" sortOrder="100" resource="KH_Feedback::parent"/>
+        <add id="KH_Feedback::feedback" title="KH Feedback" module="KH_Feedback" sortOrder="20" parent="KH_Feedback::parent" action="feedback/feedback" resource="KH_Feedback::feedback"/>
+
+    </menu>
+</config>

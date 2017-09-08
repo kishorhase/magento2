@@ -85,6 +85,19 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
                 'disabled' => $isElementDisabled
             ]
         );
+        
+         $fieldset->addField(
+            'mobile',
+            'text',
+            [
+                'name' => 'mobile',
+                'label' => __('Mobile'),
+                'title' => __('Mobile'),
+				
+                'disabled' => $isElementDisabled
+            ]
+        );
+         
 					
         $fieldset->addField(
             'content',

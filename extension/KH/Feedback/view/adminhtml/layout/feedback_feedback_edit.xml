@@ -15,6 +15,15 @@
                     <argument name="name" xsi:type="string">main_section</argument>
                     <argument name="block" xsi:type="string">feedback_feedback_edit_tab_main</argument>
                 </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">attachment_products</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Select Products</item>
+                        <item name="title" xsi:type="string">Select Products</item>
+                        <item name="url" xsi:type="helper" helper="KH\Feedback\Helper\Data::getProductsGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
             </block>
         </referenceContainer>
     </body>

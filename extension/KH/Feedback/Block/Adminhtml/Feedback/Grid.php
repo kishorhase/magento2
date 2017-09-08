@@ -95,6 +95,13 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended {
         );
 
         $this->addColumn(
+                'mobile', [
+            'header' => __('Mobile'),
+            'index' => 'mobile',
+                ]
+        );
+
+        $this->addColumn(
                 'content', [
             'header' => __('Content'),
             'index' => 'content',

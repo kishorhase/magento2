@@ -7,12 +7,15 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 
 class Save extends \Magento\Backend\App\Action
 {
-
+     protected $_jsHelper;
+     protected $_feedbackCollectionFactory;
     /**
      * @param Action\Context $context
      */
-    public function __construct(Action\Context $context)
+    public function __construct(Action\Context $context, \Magento\Backend\Helper\Js $jsHelper, \KH\Feedback\Model\ResourceModel\Feedback\CollectionFactory $feedbackCollectionFactory)
     {
+        $this->_jsHelper = $jsHelper;
+        $this->_feedbackCollectionFactory = $feedbackCollectionFactory;
         parent::__construct($context);
     }
 
@@ -24,8 +27,6 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-        
-        
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
@@ -62,9 +63,10 @@ class Save extends \Magento\Backend\App\Action
 				$data['image'] = '';
 			
             $model->setData($data);
-
+            
             try {
                 $model->save();
+                $this->saveProducts($model, $data);
                 $this->messageManager->addSuccess(__('The Feedback has been saved.'));
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
@@ -83,5 +85,39 @@ class Save extends \Magento\Backend\App\Action
             return $resultRedirect->setPath('*/*/edit', ['feedback_id' => $this->getRequest()->getParam('feedback_id')]);
         }
         return $resultRedirect->setPath('*/*/');
+    }
+    public function saveProducts($model, $post)
+    {
+        // Attach the attachments to contact
+        if (isset($post['products'])) {
+            $productIds = $this->_jsHelper->decodeGridSerializedInput($post['products']);
+            try {
+                $oldProducts = (array) $model->getProducts($model);
+                $newProducts = (array) $productIds;
+
+                $this->_resources = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\ResourceConnection');
+                $connection = $this->_resources->getConnection();
+
+                $table = $this->_resources->getTableName(\KH\Feedback\Model\ResourceModel\Feedback::TBL_ATT_PRODUCT);
+                $insert = array_diff($newProducts, $oldProducts);
+                $delete = array_diff($oldProducts, $newProducts);
+
+                if ($delete) {
+                    $where = ['feedback_id = ?' => (int)$model->getFeedbackId(), 'product_id IN (?)' => $delete];
+                    $connection->delete($table, $where);
+                }
+
+                if ($insert) {
+                    $data = [];
+                    foreach ($insert as $product_id) {
+                        $data[] = ['feedback_id' => (int)$model->getFeedbackId(), 'product_id' => (int)$product_id];
+                    }
+                    $connection->insertMultiple($table, $data);
+                }
+            } catch (Exception $e) {
+                $this->messageManager->addException($e, __('Something went wrong while saving the contact.'));
+            }
+        }
+
     }
 }

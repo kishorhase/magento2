@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="KH_Rules::kh_rules"
+             title="Custom Rules"
+             module="KH_Rules"
+             parent="Magento_CatalogRule::promo"
+             sortOrder="40"
+             action="kh_rules/custom_rule/index"
+             dependsOnModule="Magento_Sales"
+             resource="KH_Rules::rule"
+        />
+    </menu>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kh_Mastering::Item" title="Mastering Item" translate="title" module="Kh_Mastering" sortOrder="900"
+             action="mastering/index/index" resource="Kh_Mastering::Item"/>
+    </menu>
+</config>

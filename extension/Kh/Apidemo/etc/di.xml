@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <preference for="Kh\Apidemo\Api\CalculatorInterface"
+                type="Kh\Apidemo\Model\Calculator" />
+    <preference for="Kh\Apidemo\Api\Data\PointInterface"
+                type="Kh\Apidemo\Model\Point" />
+
+</config>

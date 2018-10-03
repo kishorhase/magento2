@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+    <!-- Example: curl http://127.0.0.1/index.php/rest/V1/calculator/add/1/2 -->
+    <route url="/V1/calculator/add/:num1/:num2" method="GET">
+        <service class="Kh\Apidemo\Api\CalculatorInterface" method="add"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/calculator/sum" method="POST">
+        <service class="Kh\Apidemo\Api\CalculatorInterface" method="sum"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/calculator/midpoint" method="POST">
+        <service class="Kh\Apidemo\Api\CalculatorInterface" method="midPoint"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

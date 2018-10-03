@@ -1,0 +1,9 @@
+<?php
+/**
+ * @var \Kh\Mastering\Block\Hello $block
+ */
+?>
+<?php echo $block->getLabel(); ?>
+<?php foreach ($block->getItems() as $item): ?>
+    <?php echo $item->getName(); ?> -- <?php echo $item->getDescription(); ?>
+<?php endforeach; ?>

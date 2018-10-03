@@ -1,0 +1,23 @@
+<?php
+
+$fullname = $this->getData('fullname');
+$age = $this->getData('age');
+$gender = $this->getData('gender');
+?>
+<ul>
+	<?php if($fullname){ ?>
+	<li><?php echo $fullname ?></li>
+	<?php } ?>
+	<?php if($age){ ?>
+	<li><?php echo $age ?></li>
+	<?php } ?>
+	<?php if($gender){ ?>
+	<li>
+		<?php if($gender){
+			echo __('Male');
+		}else{
+			echo __('Female');
+		} ?>
+	</li>
+	<?php } ?>
+</ul>

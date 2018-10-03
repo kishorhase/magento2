@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+	<widget id="kh_customwidget" class="Kh\CustomWidget\Block\Widget\ContactInformations">
+		<label translate="true">Contact Informations Widget</label>
+		<description>Widget in Magento2</description>
+		<parameters>
+			<parameter name="fullname" xsi:type="text"  visible="true" sort_order="0" >
+				<label translate="true">Full Name</label>
+			</parameter>
+			<parameter name="age" xsi:type="text"  visible="true" sort_order="10" >
+				<label translate="true">Age</label>
+			</parameter>
+			<parameter name="gender" xsi:type="select" source_model="Kh\CustomWidget\Model\Config\Source\Gender" visible="true" sort_order="10" >
+				<label translate="true">Gender</label>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

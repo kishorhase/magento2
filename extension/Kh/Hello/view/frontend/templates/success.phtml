@@ -1,0 +1,41 @@
+<?php echo 'Successful! This is a simple module in Magento 2.0.3333'; ?>
+<?php echo $block->getBaseUrl(); ?>
+<?php echo $block->getMediaUrl(); ?>
+
+<a class="action delete" id="delete_image" href="#">
+<span>
+        <?php /* @escapeNotVerified */ echo __('Delete'); ?>
+    </span>
+</a>
+
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/confirm'
+        ],
+        function($, confirmation) {
+            $('#delete_image').on('click', function(event){
+                event.preventDefault;
+                confirmation({
+                    title: 'Some title',
+                    content: 'Some content',
+                    actions: {
+                        /**
+                         * Callback always - called on all actions.
+                         */
+                        always: function () {},
+
+                        /**
+                         * Callback confirm.
+                         */
+                        confirm: function () {},
+
+                        /**
+                         * Callback cancel.
+                         */
+                        cancel: function () {}
+                    }
+                });
+            });
+        });
+</script>

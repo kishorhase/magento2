@@ -1,0 +1,22 @@
+{
+    "name": "kh/module-switcher",
+    "description": "Custom contact form",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "info@mage2gen.com",
+            "name": "Mage2Gen"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Kh\\Switcher\\": ""
+        }
+    }
+}

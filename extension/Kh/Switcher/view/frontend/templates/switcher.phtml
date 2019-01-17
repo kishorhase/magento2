@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var $block \Kh\Switcher\Block\Switcher
+ */
+?>
+<div id="switcher-modal-content">
+	<div class="custom-popup">
+		<h2 align="center"><?php echo $block->getTitle(); ?> </h2>
+    <?php $website =  $block->getContent(); ?>
+    <?php foreach ($website as $key => $stores) {?>
+       	<h3>-----<?php echo $key ?> -----</h3>
+    	<?php foreach ($stores as $key => $store) { ?>
+    		<div><a href="<?php echo $store['url'] ?>"><?php echo $store['name']?></a></div>
+    	<?php }
+    	}?>
+	</div>
+</div>

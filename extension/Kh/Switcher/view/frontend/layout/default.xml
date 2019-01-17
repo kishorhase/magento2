@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="Kh_Switcher::css/custom-popup-modal.css"/>
+	</head>
+	<body>
+		<referenceBlock name="header.links">
+			<block class="Kh\Switcher\Block\Link" name="switcher_link"/>
+		</referenceBlock>
+		<referenceBlock name="footer">
+				<block class="Kh\Switcher\Block\Switcher" name="switcher" template="Kh_Switcher::switcher.phtml">
+					<arguments>
+						<argument name="title" xsi:type="string">My Store</argument>
+					</arguments>
+				</block>
+		</referenceBlock>
+		<move element="switcher_link" destination="header.links" after="store_language"/>
+		<referenceBlock name="store_language" remove="true"/>
+	</body>
+</page>

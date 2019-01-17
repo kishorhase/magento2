@@ -1,4 +1,5 @@
 ================= Store Language Switcher Overlay Popup =====================
+
 This module is developed for the store language switcher popup using magento JS Modal Component.
 
 Installation :
@@ -11,14 +12,4 @@ Installation :
 Technical Information :
 1. Developed custom JS Component for the popup block, using the Magento Modal JS Component.
 2. Implement the cache for the popup block.
-3. Using following code we can implement popup anywhere in the project
-
-
-<a href="#" id="<ID NAME>" data-mage-init='{"custom-popup-modal": {"target": "#<ID CONTENT NAME>"}}'><POPUP LINK NAME></a>
-
-<div id="<ID CONTENT NAME>">
-	<div class="custom-popup">
-		<<<<<<<<<<<<< CONTENT HERE >>>>>>>>>>   
-	</div>
-</div>
 

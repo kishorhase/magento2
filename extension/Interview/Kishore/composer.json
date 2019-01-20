@@ -1,0 +1,26 @@
+{
+    "name": "interview/module-kishore",
+    "description": "Custom video module",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Kishor Hase",
+            "email": "kishorhase@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Interview\\Kishore\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

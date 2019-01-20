@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Interview::top_level" module="Interview_Kishore" resource="Magento_Backend::content" sortOrder="9999" title="Interview"/>
+		<add action="kishore/video/index" id="Interview_Kishore::video_index" module="Interview_Kishore" parent="Interview::top_level" resource="Interview_Kishore::video_index" sortOrder="9999" title="video index"/>
+		<add action="interview_kishore/video/index" id="Interview_Kishore::interview_kishore_video" module="Interview_Kishore" parent="Interview::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Video"/>
+	</menu>
+</config>

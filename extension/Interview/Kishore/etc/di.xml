@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Interview\Kishore\Api\VideoRepositoryInterface" type="Interview\Kishore\Model\VideoRepository"/>
+	<preference for="Interview\Kishore\Api\Data\VideoInterface" type="Interview\Kishore\Model\Data\Video"/>
+	<preference for="Interview\Kishore\Api\Data\VideoSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Interview\Kishore\Model\ResourceModel\Video\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">interview_kishore_video</argument>
+			<argument name="resourceModel" xsi:type="string">Interview\Kishore\Model\ResourceModel\Video\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="interview_kishore_video_listing_data_source" xsi:type="string">Interview\Kishore\Model\ResourceModel\Video\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

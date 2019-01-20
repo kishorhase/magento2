@@ -1,0 +1,16 @@
+<?php 
+$video = $block->getVideo();
+?>
+<div align="right"><a href="<?php echo  $this->getUrl('video/index/listing')?>">Back</a></div>
+<div>
+	<div class="cms-content-important">
+		<h3><?php echo $video->getTitle();?></h3>
+	</div>
+
+	<div >
+		<iframe width="766" height="431" src="<?php echo $video->getUrlLink();?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<div class="about-info cms-content">
+		<p><?php echo $video->getDescription();?></p>
+	</div>
+</div>
